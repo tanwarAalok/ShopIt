@@ -3,6 +3,7 @@ import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import './sign-up.styles.scss';
 
+
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -19,8 +20,6 @@ const SignUpForm = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { name, email, password, confirmPassword } = formFields;
-
-    // console.log(formFields);
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
@@ -41,10 +40,8 @@ const SignUpForm = () => {
         }
 
         try {
-            const {user} = await createAuthUserWithEmailAndPassword(email, password);
-            console.log("user: ", user);
+            const { user } = await createAuthUserWithEmailAndPassword(email, password);
             await createUserDocumentFromAuth(user, { name });
-
             resetFormFields();
         }
         catch (error) {
@@ -63,7 +60,7 @@ const SignUpForm = () => {
 
                 <FormInput
                     label="Name"
-                     type="text"
+                    type="text"
                     required onChange={handleChange}
                     name="name" value={name} />
 
@@ -73,12 +70,12 @@ const SignUpForm = () => {
                     name="email" value={email} />
                 
                 
-                <FormInput label="Password"  type="password"
+                <FormInput label="Password" type="password"
                     required onChange={handleChange}
                     name="password" value={password} />
                 
               
-                <FormInput label="Confirm Password"  type="password"
+                <FormInput label="Confirm Password" type="password"
                     required onChange={handleChange}
                     name="confirmPassword" value={confirmPassword} />
 
@@ -86,7 +83,7 @@ const SignUpForm = () => {
 
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default SignUpForm;
