@@ -9,6 +9,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 
 import { SignInContainer, ButtonsContainer } from "./sign-in.styles";
+import { useNavigate } from "react-router-dom";
 
 const defaultFormFields = {
   email: "",
@@ -18,6 +19,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -25,6 +27,7 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
+    navigate(-1);
   };
 
   const handleSubmit = async (event) => {
@@ -33,8 +36,10 @@ const SignInForm = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate(-1);
     } catch (error) {
       console.log("user sign in failed", error);
+      alert("Sign in Failed!!")
     }
   };
 
