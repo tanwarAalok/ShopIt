@@ -4,13 +4,14 @@ export const ProductCartContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 370px;
   align-items: center;
   position: relative;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
 
   img {
     width: 100%;
-    height: 95%;
+    height: 90%;
     object-fit: cover;
     margin-bottom: 5px;
   }
@@ -37,10 +38,11 @@ export const ProductCartContainer = styled.div`
 
 export const Footer = styled.div`
   width: 100%;
-  height: 5%;
+  height: 10%;
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  padding: 5px 10px;
 `;
 
 export const Name = styled.span`
