@@ -8,8 +8,6 @@ import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import {
   ProductCartContainer,
   Footer,
-  Name,
-  Price,
 } from './product-card.styles';
 
 type ProductCartProps = {
@@ -29,8 +27,8 @@ const ProductCard: FC<ProductCartProps> = ({ product }) => {
     <ProductCartContainer>
       <img src={imageUrl} alt={`${name}`} />
       <Footer>
-        <Name>{name}</Name>
-        <Price>₹{price}</Price>
+        <p>{name}</p>
+        <p>₹{price}</p>
       </Footer>
       <Button
         buttonType={BUTTON_TYPE_CLASSES.inverted}
